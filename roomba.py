@@ -8,6 +8,8 @@ class Robot:
     def __init__(self, bus = 1, baud = 57600, dd = 5):
         self._uart = UART(bus, 19200)
         self._uart.init(19200, bits=8, parity=None, stop=1)
+        self._uart_rx = UART(0, 19200)
+        self._uart_rx.init(19200, bits=8, parity=None, stop=1)
         self._dd = machine.Pin(dd, machine.Pin.OUT)
         
         #wake roomba up
@@ -32,6 +34,23 @@ class Robot:
         self.send_uart(132)
         time.sleep(.1)
 
+        #change baud to match uart0 115200
+        self.send_uart(129)
+        self.send_uart(11)
+        time.sleep(.1)
+
+        #send control command 130
+        self.send_uart(130)
+        time.sleep(.1)
+
+        #set full control 132
+        self.send_uart(132)
+        time.sleep(.1)
+
+        #reconnect to uart with higher baudrate
+        self._uart.init(115200, bits=8, parity=None, stop=1)
+        self._uart_rx.init(115200, bits=8, parity=None, stop=1)
+
     def vacuum(self, onoff):
         self.send_uart(138)
         self.send_uart(onoff)
@@ -46,9 +65,26 @@ class Robot:
         self._dd.value(1)
         time.sleep(2)
 
+    def dock(self):
+        #first set to spot mode
+        self.send_uart(134)
+        time.sleep(.1)
+
+        #send dock command
+        self.send_uart(143)
+        time.sleep(.1)
+
+       
+
     def send_uart(self, command):
         self._buf = command
-        self._uart.write(bytearray([self._buf]))
+        self._uart_rx.write(bytearray([self._buf]))
+
+    def receive_uart(self):
+        if(self._uart_rx.any()):
+            return self._uart_rx.any()
+        else:
+            return 'nothing to receive'
 
     def drive(self, velocity, radius):
         #first send drive command
