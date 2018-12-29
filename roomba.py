@@ -99,4 +99,16 @@ class Robot:
         time.sleep(time_to_wait)
         self.stop()
 
+    def sound(self, note, duration):
+        #note is the midi note id.
+        #duration is in seconds
+        self.send_uart(140) #create song
+        self.send_uart(1) #song number
+        self.send_uart(1) #song length
+        self.send_uart(note) #note to play
+        self.send_uart(round(duration * 64))
+        time.sleep(.1)
+        self.send_uart(141)
+        self.send_uart(1) #play song 1
+        time.sleep(duration) #need to wait to give roomba time to play note
         
