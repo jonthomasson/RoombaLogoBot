@@ -2,14 +2,15 @@
 
 import time
 import machine
+import uos
 from machine import UART
 
 class Robot:
-    def __init__(self, bus = 1, baud = 57600, dd = 5):
+    def __init__(self, bus = 0, baud = 57600, dd = 5):
+         
         self._uart = UART(bus, 19200)
-        self._uart.init(19200, bits=8, parity=None, stop=1)
-        self._uart_rx = UART(0, 19200)
-        self._uart_rx.init(19200, bits=8, parity=None, stop=1)
+        self._uart.init(19200, bits=8, parity=None, stop=1,  timeout=500, timeout_char=2)
+      
         self._dd = machine.Pin(dd, machine.Pin.OUT)
         
         #wake roomba up
@@ -35,21 +36,21 @@ class Robot:
         time.sleep(.1)
 
         #change baud to match uart0 115200
-        self.send_uart(129)
-        self.send_uart(11)
-        time.sleep(.1)
+        #self.send_uart(129)
+        #self.send_uart(11)
+        #time.sleep(.1)
 
         #send control command 130
-        self.send_uart(130)
-        time.sleep(.1)
+        #self.send_uart(130)
+        #time.sleep(.1)
 
         #set full control 132
-        self.send_uart(132)
-        time.sleep(.1)
+        #self.send_uart(132)
+        #time.sleep(.1)
 
         #reconnect to uart with higher baudrate
-        self._uart.init(115200, bits=8, parity=None, stop=1)
-        self._uart_rx.init(115200, bits=8, parity=None, stop=1)
+        #self._uart.init(115200, bits=8, parity=None, stop=1)
+        
 
     def vacuum(self, onoff):
         self.send_uart(138)
@@ -77,14 +78,28 @@ class Robot:
        
 
     def send_uart(self, command):
+        #uos.dupterm(self._uart, 1) #takeover uart from repl
         self._buf = command
-        self._uart_rx.write(bytearray([self._buf]))
+        self._uart.write(bytearray([self._buf]))
+        #uos.dupterm(None, 1) #give uart back to repl
 
-    def receive_uart(self):
-        if(self._uart_rx.any()):
-            return self._uart_rx.any()
-        else:
-            return 'nothing to receive'
+    def recv_uart(self, num):
+        #uos.dupterm(self._uart, 1) #takeover uart from repl
+        while not self._uart.any():   
+            pass
+        data = self._uart.read(num)
+        #uos.dupterm(None, 1) #give uart back to repl
+        return data
+
+    def get_sensors(self):
+        #uos.dupterm(self._uart, 1) #takeover uart from repl
+        self.send_uart(142)
+        self.send_uart(2)
+        #print(self._uart.read())
+        data = self.recv_uart(26)
+        #uos.dupterm(None, 1) #give uart back to repl
+        for x in data:
+            print(hex(x))
 
     def drive(self, velocity, radius):
         #first send drive command
