@@ -5,22 +5,22 @@ import serial
 import RPi.GPIO as GPIO
 
 class Robot:
-    def __init__(self, dd = 18):
+    def __init__(self, dd = 12):
         self._uart = serial.Serial(
             port='/dev/serial0',
             baudrate = 19200,
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_ONE,
             bytesize=serial.EIGHTBITS,
-            timeout=1
+            timeout=2
         )
         
         self._dd = dd
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self._dd, GPIO.OUT)
-        
-        
+                
         #wake roomba up
+        #GPIO.output(self._dd, GPIO.HIGH);
         self.wake_up()
 
         #pulse device detect three times to set baud 19200
@@ -32,6 +32,7 @@ class Robot:
             #self._dd.value(1)
             time.sleep(.25)
 
+        GPIO.output(self._dd, GPIO.LOW) #import to leave dd low here
         #send start command 128
         self.send_uart(128)
         time.sleep(.1)
@@ -60,7 +61,11 @@ class Robot:
         #reconnect to uart with higher baudrate
         #self._uart.init(115200, bits=8, parity=None, stop=1)
         
-
+    def reset(self):
+        self.send_uart(7)
+        data = self._uart.read()
+        print(data)
+        
     def vacuum(self, onoff):
         self.send_uart(138)
         self.send_uart(onoff)
@@ -106,12 +111,13 @@ class Robot:
     def get_sensors(self):
         #uos.dupterm(self._uart, 1) #takeover uart from repl
         self.send_uart(142)
-        self.send_uart(2)
+        self.send_uart(1)
         #print(self._uart.read())
-        data = self.recv_uart(26)
+        data = self.recv_uart(10)
+        print(data)
         #uos.dupterm(None, 1) #give uart back to repl
-        for x in data:
-            print(hex(x))
+        #for x in data:
+         #   print(x)
 
     def drive(self, velocity, radius):
         #first send drive command
