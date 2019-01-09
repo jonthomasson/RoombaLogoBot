@@ -1,0 +1,517 @@
+pi@raspberrypi:~ $ python
+Python 2.7.13 (default, Sep 26 2018, 18:42:22) 
+[GCC 6.3.0 20170516] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import espeak
+>>> espeak.synth("hi")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'module' object has no attribute 'synth'
+>>> import espeak from espeak
+  File "<stdin>", line 1
+    import espeak from espeak
+                     ^
+SyntaxError: invalid syntax
+>>> from espeak import espeak
+>>> espeak.synth("hi")
+True
+>>> ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib confmisc.c:1281:(snd_func_refer) Unable to find definition 'defaults.bluealsa.device'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:4996:(snd_config_expand) Args evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM bluealsa
+ALSA lib confmisc.c:1281:(snd_func_refer) Unable to find definition 'defaults.bluealsa.device'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:4996:(snd_config_expand) Args evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM bluealsa
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+
+KeyboardInterrupt
+>>> espeak.synth("we wish you a merry christmas")
+True
+>>> espeak.synth("we wish you a merry christmas")
+True
+>>> espeak.synth("and a happy new year")
+True
+>>> espeak.synth("we wish you a merry christmas")
+True
+>>> espeak.synth("we wish you a merry christmas")
+True
+>>> espeak.synth("and a happy new year")
+True
+>>> espeak.synth("and a happy new year")
+True
+>>> quit()
+pi@raspberrypi:~ $ pip list
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+automationhat (0.1.0)
+blinker (1.3)
+blinkt (0.1.2)
+buttonshim (0.0.2)
+Cap1xxx (0.1.3)
+chardet (2.3.0)
+click (6.6)
+colorama (0.3.7)
+cryptography (1.7.1)
+drumhat (0.1.0)
+enum34 (1.1.6)
+envirophat (1.0.0)
+ExplorerHAT (0.4.2)
+Flask (0.12.1)
+fourletterphat (0.1.0)
+gpiozero (1.4.1)
+idna (2.2)
+ipaddress (1.0.17)
+itsdangerous (0.24)
+Jinja2 (2.8)
+keyring (10.1)
+keyrings.alt (1.3)
+MarkupSafe (0.23)
+mcpi (0.1.1)
+microdotphat (0.2.1)
+mote (0.0.4)
+motephat (0.0.2)
+numpy (1.12.1)
+oauthlib (2.0.1)
+pantilthat (0.0.7)
+phatbeat (0.1.1)
+pianohat (0.1.0)
+picamera (1.13)
+picraft (1.0)
+piglow (1.2.4)
+pigpio (1.38)
+Pillow (4.0.0)
+pip (9.0.1)
+pyasn1 (0.1.9)
+pycrypto (2.6.1)
+pygame (1.9.3)
+pygobject (3.22.0)
+pyinotify (0.9.6)
+PyJWT (1.4.2)
+pyOpenSSL (16.2.0)
+pyserial (3.2.1)
+python-espeak (0.5)
+pyxdg (0.25)
+rainbowhat (0.1.0)
+requests (2.12.4)
+requests-oauthlib (0.7.0)
+RPi.GPIO (0.6.5)
+RTIMULib (7.2.1)
+scrollphat (0.0.7)
+scrollphathd (1.2.1)
+SecretStorage (2.3.1)
+sense-emu (1.1)
+sense-hat (2.2.0)
+setuptools (33.1.1)
+simplejson (3.10.0)
+six (1.10.0)
+skywriter (0.0.7)
+sn3218 (1.2.7)
+spidev (3.3)
+touchphat (0.0.1)
+twython (3.4.0)
+unicornhathd (0.0.4)
+urllib3 (1.19.1)
+Werkzeug (0.11.15)
+wheel (0.29.0)
+pi@raspberrypi:~ $ 
+pi@raspberrypi:~ $ sudo apt-get install espeak
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+espeak is already the newest version (1.48.04+dfsg-5).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pi@raspberrypi:~ $ sudo apt-et install espeak python-espeak
+sudo: apt-et: command not found
+pi@raspberrypi:~ $ sudo apt-get install espeak python-espeak
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+espeak is already the newest version (1.48.04+dfsg-5).
+python-espeak is already the newest version (0.5-1+b2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pi@raspberrypi:~ $ sudo apt-get uninstall espeak python-espeak
+E: Invalid operation uninstall
+pi@raspberrypi:~ $ sudo apt-get remove espeak python-espeak
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  espeak-data libespeak1 libsonic0
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  espeak python-espeak
+0 upgraded, 0 newly installed, 2 to remove and 0 not upgraded.
+After this operation, 247 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 133708 files and directories currently installed.)
+Removing espeak (1.48.04+dfsg-5) ...
+Removing python-espeak (0.5-1+b2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+pi@raspberrypi:~ $ sudo apt-get update
+Hit:1 http://archive.raspberrypi.org/debian stretch InRelease
+Hit:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease
+Reading package lists... Done                      
+pi@raspberrypi:~ $ sudo apt-get install espeak python-espeak
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  espeak python-espeak
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/79.0 kB of archives.
+After this operation, 247 kB of additional disk space will be used.
+Selecting previously unselected package espeak.
+(Reading database ... 133670 files and directories currently installed.)
+Preparing to unpack .../espeak_1.48.04+dfsg-5_armhf.deb ...
+Unpacking espeak (1.48.04+dfsg-5) ...
+Selecting previously unselected package python-espeak.
+Preparing to unpack .../python-espeak_0.5-1+b2_armhf.deb ...
+Unpacking python-espeak (0.5-1+b2) ...
+Setting up python-espeak (0.5-1+b2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up espeak (1.48.04+dfsg-5) ...
+pi@raspberrypi:~ $ pip list
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+automationhat (0.1.0)
+blinker (1.3)
+blinkt (0.1.2)
+buttonshim (0.0.2)
+Cap1xxx (0.1.3)
+chardet (2.3.0)
+click (6.6)
+colorama (0.3.7)
+cryptography (1.7.1)
+drumhat (0.1.0)
+enum34 (1.1.6)
+envirophat (1.0.0)
+ExplorerHAT (0.4.2)
+Flask (0.12.1)
+fourletterphat (0.1.0)
+gpiozero (1.4.1)
+idna (2.2)
+ipaddress (1.0.17)
+itsdangerous (0.24)
+Jinja2 (2.8)
+keyring (10.1)
+keyrings.alt (1.3)
+MarkupSafe (0.23)
+mcpi (0.1.1)
+microdotphat (0.2.1)
+mote (0.0.4)
+motephat (0.0.2)
+numpy (1.12.1)
+oauthlib (2.0.1)
+pantilthat (0.0.7)
+phatbeat (0.1.1)
+pianohat (0.1.0)
+picamera (1.13)
+picraft (1.0)
+piglow (1.2.4)
+pigpio (1.38)
+Pillow (4.0.0)
+pip (9.0.1)
+pyasn1 (0.1.9)
+pycrypto (2.6.1)
+pygame (1.9.3)
+pygobject (3.22.0)
+pyinotify (0.9.6)
+PyJWT (1.4.2)
+pyOpenSSL (16.2.0)
+pyserial (3.2.1)
+python-espeak (0.5)
+pyxdg (0.25)
+rainbowhat (0.1.0)
+requests (2.12.4)
+requests-oauthlib (0.7.0)
+RPi.GPIO (0.6.5)
+RTIMULib (7.2.1)
+scrollphat (0.0.7)
+scrollphathd (1.2.1)
+SecretStorage (2.3.1)
+sense-emu (1.1)
+sense-hat (2.2.0)
+setuptools (33.1.1)
+simplejson (3.10.0)
+six (1.10.0)
+skywriter (0.0.7)
+sn3218 (1.2.7)
+spidev (3.3)
+touchphat (0.0.1)
+twython (3.4.0)
+unicornhathd (0.0.4)
+urllib3 (1.19.1)
+Werkzeug (0.11.15)
+wheel (0.29.0)
+pi@raspberrypi:~ $ python
+Python 2.7.13 (default, Sep 26 2018, 18:42:22) 
+[GCC 6.3.0 20170516] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import espeak
+>>> espeak.synth("hi")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'module' object has no attribute 'synth'
+>>> from espeak import espeak
+>>> espeak.synth("hi")
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib confmisc.c:1281:(snd_func_refer) Unable to find definition 'defaults.bluealsa.device'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:4996:(snd_config_expand) Args evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM bluealsa
+ALSA lib confmisc.c:1281:(snd_func_refer) Unable to find definition 'defaults.bluealsa.device'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:4996:(snd_config_expand) Args evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM bluealsa
+True
+>>> Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+
+KeyboardInterrupt
+>>> espeak.synth("hi")
+True
+>>> python -v
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'python' is not defined
+>>> --version
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'version' is not defined
+>>> quit()
+pi@raspberrypi:~ $ python --version
+Python 2.7.13
+pi@raspberrypi:~ $ sudo apt-get update
+Hit:1 http://raspbian.raspberrypi.org/raspbian stretch InRelease
+Hit:2 http://archive.raspberrypi.org/debian stretch InRelease
+Reading package lists... Done
+pi@raspberrypi:~ $ sudo apt-get install python-dev
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python-dev is already the newest version (2.7.13-2).
+python-dev set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pi@raspberrypi:~ $ python3 --version
+Python 3.5.3
+pi@raspberrypi:~ $ idle3.6
+bash: idle3.6: command not found
+pi@raspberrypi:~ $ idle36
+bash: idle36: command not found
+pi@raspberrypi:~ $ sudo apt-get install python3-pip
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python3-pip is already the newest version (9.0.1-2+rpt2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pi@raspberrypi:~ $ sudo pip3 install espeak python-espeak
+Collecting espeak
+  Could not find a version that satisfies the requirement espeak (from versions: )
+No matching distribution found for espeak
+pi@raspberrypi:~ $ sudo apt-get install python3-thonny
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python3-thonny is already the newest version (3.0.8-1+rpt1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pi@raspberrypi:~ $ pip3 list
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+astroid (1.4.9)
+automationhat (0.1.0)
+blinker (1.3)
+blinkt (0.1.2)
+buttonshim (0.0.2)
+Cap1xxx (0.1.3)
+chardet (2.3.0)
+click (6.6)
+colorama (0.3.7)
+cryptography (1.7.1)
+docutils (0.13.1)
+drumhat (0.1.0)
+envirophat (1.0.0)
+ExplorerHAT (0.4.2)
+Flask (0.12.1)
+fourletterphat (0.1.0)
+gpiozero (1.4.1)
+idna (2.2)
+isort (4.2.5)
+itsdangerous (0.24)
+jedi (0.10.2)
+Jinja2 (2.8)
+keyring (10.1)
+keyrings.alt (1.3)
+lazy-object-proxy (1.2.2)
+MarkupSafe (0.23)
+mcpi (0.1.1)
+microdotphat (0.2.1)
+mote (0.0.4)
+motephat (0.0.2)
+mypy (0.470)
+numpy (1.12.1)
+oauthlib (2.0.1)
+pantilthat (0.0.7)
+pgzero (1.2)
+phatbeat (0.1.1)
+pianohat (0.1.0)
+picamera (1.13)
+picraft (1.0)
+piglow (1.2.4)
+pigpio (1.38)
+Pillow (4.0.0)
+pip (9.0.1)
+pyasn1 (0.1.9)
+pycrypto (2.6.1)
+pygame (1.9.3)
+Pygments (2.2.0)
+pygobject (3.22.0)
+pyinotify (0.9.6)
+PyJWT (1.4.2)
+pylint (1.6.5)
+pyOpenSSL (16.2.0)
+pyperclip (1.5.27)
+pyserial (3.2.1)
+python-apt (1.1.0b5)
+pyxdg (0.25)
+rainbowhat (0.1.0)
+requests (2.12.4)
+requests-oauthlib (0.7.0)
+roman (2.0.0)
+RPi.GPIO (0.6.5)
+RTIMULib (7.2.1)
+scrollphat (0.0.7)
+scrollphathd (1.2.1)
+SecretStorage (2.3.1)
+sense-emu (1.1)
+sense-hat (2.2.0)
+setuptools (33.1.1)
+simplejson (3.10.0)
+six (1.10.0)
+skywriter (0.0.7)
+sn3218 (1.2.7)
+spidev (3.3)
+ssh-import-id (5.6)
+thonny (3.0.8)
+thonny-pi (1.1)
+touchphat (0.0.1)
+twython (3.4.0)
+typed-ast (0.6.3)
+unicornhathd (0.0.4)
+urllib3 (1.19.1)
+Werkzeug (0.11.15)
+wheel (0.29.0)
+wrapt (1.9.0)
+pi@raspberrypi:~ $ pip3 --version
+pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.5)
+pi@raspberrypi:~ $ pip --version
+pip 9.0.1 from /usr/lib/python2.7/dist-packages (python 2.7)
+pi@raspberrypi:~ $ sudo python3 -m pip install espeak
+Collecting espeak
+  Could not find a version that satisfies the requirement espeak (from versions: )
+No matching distribution found for espeak
+pi@raspberrypi:~ $ pip install py-espeak-ng
+Collecting py-espeak-ng
+  Downloading https://files.pythonhosted.org/packages/b3/82/b30fd97d8044f54b8244c6b5b968a4d641b624a970192cdef48afccd43d5/py_espeak_ng-0.1.7-py2.py3-none-any.whl
+Installing collected packages: py-espeak-ng
+Successfully installed py-espeak-ng-0.1.7
+pi@raspberrypi:~ $ sudo python3 -m pip install py-espeak-ng
+Collecting py-espeak-ng
+  Downloading https://files.pythonhosted.org/packages/b3/82/b30fd97d8044f54b8244c6b5b968a4d641b624a970192cdef48afccd43d5/py_espeak_ng-0.1.7-py2.py3-none-any.whl
+Installing collected packages: py-espeak-ng
+Successfully installed py-espeak-ng-0.1.7
+pi@raspberrypi:~ $ pip install espeak-ng
+Collecting espeak-ng
+  Could not find a version that satisfies the requirement espeak-ng (from versions: )
+No matching distribution found for espeak-ng
+pi@raspberrypi:~ $ sudo python3 -m pip install espeak-ng
+Collecting espeak-ng
+  Could not find a version that satisfies the requirement espeak-ng (from versions: )
+No matching distribution found for espeak-ng
+pi@raspberrypi:~ $ sudo python3 -m pip3 install espeak-ng
+/usr/bin/python3: No module named pip3
+pi@raspberrypi:~ $ pip3 install espeak-ng
+Collecting espeak-ng
+  Could not find a version that satisfies the requirement espeak-ng (from versions: )
+No matching distribution found for espeak-ng
+pi@raspberrypi:~ $ sudo apt-get install espeak-ng
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  espeak-ng-data libespeak-ng1 libpcaudio0
+The following NEW packages will be installed:
+  espeak-ng espeak-ng-data libespeak-ng1 libpcaudio0
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2,847 kB of archives.
+After this operation, 6,858 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://mirrors.ocf.berkeley.edu/raspbian/raspbian stretch/main armhf libpcaudio0 armhf 1.0-1 [6,422 B]
+Get:2 http://mirrors.ocf.berkeley.edu/raspbian/raspbian stretch/main armhf espeak-ng-data armhf 1.49.0+dfsg-11 [2,463 kB]
+Get:3 http://mirrors.ocf.berkeley.edu/raspbian/raspbian stretch/main armhf libespeak-ng1 armhf 1.49.0+dfsg-11 [151 kB]
+Get:4 http://mirrors.ocf.berkeley.edu/raspbian/raspbian stretch/main armhf espeak-ng armhf 1.49.0+dfsg-11 [226 kB]
+Fetched 2,847 kB in 5s (505 kB/s)  
+Selecting previously unselected package libpcaudio0.
+(Reading database ... 133708 files and directories currently installed.)
+Preparing to unpack .../libpcaudio0_1.0-1_armhf.deb ...
+Unpacking libpcaudio0 (1.0-1) ...
+Selecting previously unselected package espeak-ng-data:armhf.
+Preparing to unpack .../espeak-ng-data_1.49.0+dfsg-11_armhf.deb ...
+Unpacking espeak-ng-data:armhf (1.49.0+dfsg-11) ...
+Selecting previously unselected package libespeak-ng1:armhf.
+Preparing to unpack .../libespeak-ng1_1.49.0+dfsg-11_armhf.deb ...
+Unpacking libespeak-ng1:armhf (1.49.0+dfsg-11) ...
+Selecting previously unselected package espeak-ng.
+Preparing to unpack .../espeak-ng_1.49.0+dfsg-11_armhf.deb ...
+Unpacking espeak-ng (1.49.0+dfsg-11) ...
+Setting up libpcaudio0 (1.0-1) ...
+Processing triggers for libc-bin (2.24-11+deb9u3) ...
+Setting up espeak-ng-data:armhf (1.49.0+dfsg-11) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up libespeak-ng1:armhf (1.49.0+dfsg-11) ...
+Setting up espeak-ng (1.49.0+dfsg-11) ...
+Processing triggers for libc-bin (2.24-11+deb9u3) ...
+pi@raspberrypi:~ $ 

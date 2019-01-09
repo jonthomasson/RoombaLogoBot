@@ -1,0 +1,46 @@
+﻿pi@raspberrypi:~ $ sudo raspi-config
+pi@raspberrypi:~ $ ls /dev/i2c* /dev/spi*
+/dev/i2c-1  /dev/spidev0.0  /dev/spidev0.1
+pi@raspberrypi:~ $ sudo apt-get update
+Hit:1 http://archive.raspberrypi.org/debian stretch InRelease
+Get:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease [15.0 kB]
+Fetched 15.0 kB in 1s (11.3 kB/s)                             
+Reading package lists... Done
+pi@raspberrypi:~ $ pip3 install RPI.GPIO
+Collecting RPI.GPIO
+  Downloading https://www.piwheels.org/simple/rpi-gpio/RPi.GPIO-0.6.5-cp35-cp35m-linux_armv7l.whl (66kB)
+    100% |████████████████████████████████| 71kB 183kB/s 
+Installing collected packages: RPI.GPIO
+Successfully installed RPI.GPIO-0.6.5
+pi@raspberrypi:~ $ pip3 install adafruit-blinka
+Collecting adafruit-blinka
+  Downloading https://www.piwheels.org/simple/adafruit-blinka/Adafruit_Blinka-1.1.0-py3-none-any.whl
+Collecting spidev (from adafruit-blinka)
+  Downloading https://www.piwheels.org/simple/spidev/spidev-3.2-cp35-cp35m-linux_armv7l.whl
+Collecting Adafruit-PureIO (from adafruit-blinka)
+  Downloading https://www.piwheels.org/simple/adafruit-pureio/Adafruit_PureIO-0.2.3-py3-none-any.whl
+Collecting RPi.GPIO; platform_machine == "armv7l" or platform_machine == "armv6l" (from adafruit-blinka)
+  Using cached https://www.piwheels.org/simple/rpi-gpio/RPi.GPIO-0.6.5-cp35-cp35m-linux_armv7l.whl
+Collecting rpi-ws281x>=4.0.0; platform_machine == "armv7l" or platform_machine == "armv6l" (from adafruit-blinka)
+  Downloading https://files.pythonhosted.org/packages/dc/46/934500cf2f68c63842839ae7584225c95a18749ca1b8d33da2a30f3930d4/rpi_ws281x-4.1.0-cp35-cp35m-linux_armv7l.whl (95kB)
+    100% |████████████████████████████████| 102kB 571kB/s 
+Collecting Adafruit-PlatformDetect (from adafruit-blinka)
+  Downloading https://www.piwheels.org/simple/adafruit-platformdetect/Adafruit_PlatformDetect-0.0.9-py3-none-any.whl
+Installing collected packages: spidev, Adafruit-PureIO, RPi.GPIO, rpi-ws281x, Adafruit-PlatformDetect, adafruit-blinka
+Successfully installed Adafruit-PlatformDetect-0.0.9 Adafruit-PureIO-0.2.3 RPi.GPIO-0.6.5 adafruit-blinka-1.1.0 rpi-ws281x-4.1.0 spidev-3.2
+pi@raspberrypi:~ $ sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+Collecting rpi_ws281x
+  Downloading https://files.pythonhosted.org/packages/dc/46/934500cf2f68c63842839ae7584225c95a18749ca1b8d33da2a30f3930d4/rpi_ws281x-4.1.0-cp35-cp35m-linux_armv7l.whl (95kB)
+    100% |████████████████████████████████| 102kB 570kB/s 
+Collecting adafruit-circuitpython-neopixel
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-neopixel/adafruit_circuitpython_neopixel-3.3.4-py3-none-any.whl
+Collecting Adafruit-Blinka (from adafruit-circuitpython-neopixel)
+  Downloading https://www.piwheels.org/simple/adafruit-blinka/Adafruit_Blinka-1.1.0-py3-none-any.whl
+Collecting Adafruit-PureIO (from Adafruit-Blinka->adafruit-circuitpython-neopixel)
+  Downloading https://www.piwheels.org/simple/adafruit-pureio/Adafruit_PureIO-0.2.3-py3-none-any.whl
+Requirement already satisfied: RPi.GPIO; platform_machine == "armv7l" or platform_machine == "armv6l" in /usr/lib/python3/dist-packages (from Adafruit-Blinka->adafruit-circuitpython-neopixel)
+Requirement already satisfied: spidev in /usr/lib/python3/dist-packages (from Adafruit-Blinka->adafruit-circuitpython-neopixel)
+Collecting Adafruit-PlatformDetect (from Adafruit-Blinka->adafruit-circuitpython-neopixel)
+  Downloading https://www.piwheels.org/simple/adafruit-platformdetect/Adafruit_PlatformDetect-0.0.9-py3-none-any.whl
+Installing collected packages: rpi-ws281x, Adafruit-PureIO, Adafruit-PlatformDetect, Adafruit-Blinka, adafruit-circuitpython-neopixel
+Successfully installed Adafruit-Blinka-1.1.0 Adafruit-PlatformDetect-0.0.9 Adafruit-PureIO-0.2.3 adafruit-circuitpython-neopixel-3.3.4 rpi-ws281x-4.1.0

@@ -5,7 +5,7 @@ import serial
 import RPi.GPIO as GPIO
 
 class Robot:
-    def __init__(self, dd = 12):
+    def __init__(self, dd = 16):
         self._uart = serial.Serial(
             port='/dev/serial0',
             baudrate = 19200,
@@ -20,16 +20,13 @@ class Robot:
         GPIO.setup(self._dd, GPIO.OUT)
                 
         #wake roomba up
-        #GPIO.output(self._dd, GPIO.HIGH);
         self.wake_up()
 
         #pulse device detect three times to set baud 19200
         for i in range(3):
             GPIO.output(self._dd, GPIO.LOW);
-            #self._dd.value(0)
             time.sleep(.25)
             GPIO.output(self._dd, GPIO.HIGH);
-            #self._dd.value(1)
             time.sleep(.25)
 
         GPIO.output(self._dd, GPIO.LOW) #import to leave dd low here
@@ -44,22 +41,6 @@ class Robot:
         #set full control 132
         self.send_uart(132)
         time.sleep(.1)
-
-        #change baud to match uart0 115200
-        #self.send_uart(129)
-        #self.send_uart(11)
-        #time.sleep(.1)
-
-        #send control command 130
-        #self.send_uart(130)
-        #time.sleep(.1)
-
-        #set full control 132
-        #self.send_uart(132)
-        #time.sleep(.1)
-
-        #reconnect to uart with higher baudrate
-        #self._uart.init(115200, bits=8, parity=None, stop=1)
         
     def reset(self):
         self.send_uart(7)
@@ -76,10 +57,8 @@ class Robot:
 
     def wake_up(self):
         GPIO.output(self._dd, GPIO.LOW);
-        #self._dd.value(0)
         time.sleep(.1)
         GPIO.output(self._dd, GPIO.HIGH);
-        #self._dd.value(1)
         time.sleep(2)
 
     def dock(self):
@@ -91,31 +70,20 @@ class Robot:
         self.send_uart(143)
         time.sleep(.1)
 
-       
-
     def send_uart(self, command):
-        #uos.dupterm(self._uart, 1) #takeover uart from repl
         self._buf = command
         self._uart.write(bytearray([self._buf]))
-        
-        #uos.dupterm(None, 1) #give uart back to repl
 
     def recv_uart(self, num):
-        #uos.dupterm(self._uart, 1) #takeover uart from repl
-        #while not self._uart.any():   
-        #    pass
         data = self._uart.read(num)
-        #uos.dupterm(None, 1) #give uart back to repl
+        
         return data
 
     def get_sensors(self):
-        #uos.dupterm(self._uart, 1) #takeover uart from repl
         self.send_uart(142)
         self.send_uart(1)
-        #print(self._uart.read())
         data = self.recv_uart(10)
         print(data)
-        #uos.dupterm(None, 1) #give uart back to repl
         #for x in data:
          #   print(x)
 
@@ -123,6 +91,7 @@ class Robot:
         #first send drive command
         self.send_uart(137)
         time.sleep(.1)
+        
         #next send velocity
         high = (velocity >> 8) & 0xff
         low = velocity & 0xff
